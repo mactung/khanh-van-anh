@@ -30,7 +30,7 @@
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Mulish:wght@400;700&family=Tinos:wght@400;700&family=Literata:wght@400;700&display=swap"
     as="style" onload="this.onload = null; this.rel = 'stylesheet';">
-  <link rel="preload" href="https://w.ladicdn.com/v5/source/ladipagev3.min.js?v=1769744263164" as="script">
+  <!-- <link rel="preload" href="https://w.ladicdn.com/v5/source/ladipagev3.min.js?v=1769744263164" as="script"> -->
   <style id="style_ladi" type="text/css">
     a,
     abbr,
@@ -2159,9 +2159,9 @@
 
     #HEADLINE40>.ladi-headline {
       font-family: TlROIFYyLnRZg;
-      font-size: 25px;
+      font-size: 30px;
       line-height: 1.6;
-      color: rgb(162, 1, 1);
+      color: rgb(168, 128, 68);
       text-align: center;
     }
 
@@ -3433,7 +3433,7 @@
 
   <!-- Audio -->
   <audio id="background-music" loop="">
-    <source src="audio/1lzBZ3THYfMe.mp3" type="audio/mpeg">
+    <source src="audio/videoplayback.mp3" type="audio/mpeg">
     Trình duyệt không hỗ trợ HTML5 Audio.
   </audio>
 
@@ -3574,6 +3574,27 @@
       // Initial Load
       loadWishes();
     });
+  </script>
+  <script>
+    (function () {
+      (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const element = document.querySelector('#HEADLINE40 .ladi-headline');
+
+        if (element) {
+          if (name) {
+            console.log('name', name);
+            console.log(element);
+            element.innerText = name;
+            console.log(element.innerText);
+          } else {
+            // Clear the placeholder if no name is provided
+            element.innerText = element.innerText.replace('!::Ten::!', '');
+          }
+        }
+      })();
+    })();
   </script>
 </body>
 
