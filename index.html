@@ -3495,6 +3495,16 @@
         { name: "Team Dev", message: "Code tình yêu không bao giờ có bug! Happy ending!" }
       ];
 
+      function adjustScrollDuration() {
+        const speed = 40; // pixels / second
+        // Start: translateY(100%), End: translateY(-150%) => Total distance = 2.5 * height
+        const distance = wrapper.scrollHeight * 2.5;
+        if (distance > 0) {
+          const duration = distance / speed;
+          wrapper.style.animationDuration = duration + 's';
+        }
+      }
+
       function renderList(wishes) {
         wrapper.innerHTML = '';
         wishes.forEach(wish => {
@@ -3506,6 +3516,7 @@
             `;
           wrapper.appendChild(div);
         });
+        adjustScrollDuration();
       }
 
       function loadWishes() {
@@ -3556,6 +3567,7 @@
                 <div class="wish-message">${newWish.message}</div>
             `;
           wrapper.prepend(div); // Add to top visually
+          adjustScrollDuration();
 
           inputName.value = '';
           inputMsg.value = '';
